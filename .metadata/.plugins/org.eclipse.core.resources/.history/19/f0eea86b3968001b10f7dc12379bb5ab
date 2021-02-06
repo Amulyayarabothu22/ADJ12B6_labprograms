@@ -1,0 +1,95 @@
+package examples;
+
+import java.io.IOException;
+import java.io.PrintWriter;
+
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
+/**
+ * Servlet implementation class Program9_shop
+ */
+@WebServlet("/Program9_shop")
+public class Program9_shop extends HttpServlet {
+	private static final long serialVersionUID = 1L;
+
+    /**
+     * Default constructor. 
+     */
+    public Program9_shop() {
+        // TODO Auto-generated constructor stub
+    }
+
+	/**
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+	 */
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// TODO Auto-generated method stub
+		response.getWriter().append("Served at: ").append(request.getContextPath());
+	}
+
+	/**
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 */
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// TODO Auto-generated method stub
+		//doGet(request, response);
+		//doGet(request, response);
+				response.setContentType("text/html");
+				PrintWriter out = response.getWriter();
+				
+				String javacost = request.getParameter("jcost");
+				String Ccost = request.getParameter("Ccost");
+				String pythoncost = request.getParameter("pcost");
+				String cpluscost = request.getParameter("cpcost");
+				
+				String java = request.getParameter("java");
+				String C = request.getParameter("C");
+				String python = request.getParameter("Python");
+				String cplus = request.getParameter("cplus");
+				
+				int javaamt = 0, Camt = 0, pythonamt = 0, cplusamt = 0;
+				
+				HttpSession session = request.getSession(true);
+				
+				if(java != null && !java.equals("")) {
+					javaamt = Integer.parseInt(javacost) * Integer.parseInt(java);
+					if(session.getAttribute("javaamt") != null) {
+						javaamt = javaamt + Integer.parseInt(session.getAttribute("javaamt").toString());
+					}
+					
+					session.setAttribute("javaamt", javaamt+"");
+				}
+				if(C != null && !C.equals("")) {
+					Camt = Integer.parseInt(Ccost) * Integer.parseInt(C);
+					if(session.getAttribute("Camt") != null) {
+						Camt = Camt + Integer.parseInt(session.getAttribute("Camt").toString());
+					}
+					session.setAttribute("Camt", Camt+"");
+				}
+				if(python != null && !python.equals("")) {
+					pythonamt = Integer.parseInt(pythoncost) * Integer.parseInt(python);
+					if(session.getAttribute("pythonamt") != null) {
+						pythonamt = pythonamt + Integer.parseInt(session.getAttribute("pythonamt").toString());
+					}
+					session.setAttribute("pythonamt", pythonamt+"");
+				}
+				if(cplus != null && !cplus.equals("")) {
+					cplusamt = Integer.parseInt(cpluscost) * Integer.parseInt(cplus);
+					if(session.getAttribute("cplusamt") != null) {
+						cplusamt = cplusamt + Integer.parseInt(session.getAttribute("cplusamt").toString());
+					}
+					session.setAttribute("cplusamt", cplusamt+"");
+				}	
+				
+				response.sendRedirect("./Program9_addcart.html");
+				
+			}
+				
+}
+
+

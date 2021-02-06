@@ -1,0 +1,42 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+	<h2>List of five websites</h2>
+	<!--  1st method -->
+	<form action = "./q9" method = "post">
+	<input type = "radio" name= "websites" value="amazon">Amazon<br>
+	<input type = "radio" name= "websites" value="flipkart">Flipkart<br>
+	<input type = "radio" name= "websites" value="facebook">Facebook<br>
+	<input type = "radio" name= "websites" value="google">Google<br>
+	<input type = "radio" name= "websites" value="youtube">Youtube<br>
+	<input type="submit" name="submit">
+	</form>
+	<!-- 2nd method 
+	<form action = "./q9" method = "post">
+	
+	<input type = "checkbox" name= "websites" value="amazon">Amazon<br>
+	<input type = "checkbox" name= "websites" value="flipkart">Flipkart<br>
+	<input type = "checkbox" name= "websites" value="facebook">Facebook<br>
+	<input type = "checkbox" name= "websites" value="google">Google<br>
+	<input type = "checkbox" name= "websites" value="youtube">Youtube<br>
+	<input type="submit" name="submit">
+	</form>
+	-->
+	<!-- 3rd method 
+	<form action = "./q9" method = "post">
+		<select name="websites">
+			<option value="amazon">Amazon</option>
+			<option value="flipkart">Flipkart</option>
+			<option value="facebook">Facebook</option>
+			<option value="google">Google</option>
+			<option value="youtube">Youtube</option>
+		</select><br><br>
+		<input type="submit" name="submit">
+	</form>
+	-->
+</body>
+</html>
